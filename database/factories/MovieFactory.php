@@ -18,6 +18,7 @@ class MovieFactory extends Factory
     {
         return [
              'name'=>$this->faker->name(),
+
              'category_id' => $this->faker->numberBetween(1,10),
         ];
     }
