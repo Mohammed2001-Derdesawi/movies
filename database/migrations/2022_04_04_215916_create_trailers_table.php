@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('trailers', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('rating',['1','2','3','4','5']);
-            $table->string('title',100);
-            $table->longText('body');
+            $table->string('url');
             $table->unsignedInteger('part_id');
             $table->foreign('part_id')->references('id')->on('parts')->onDelete('CASCADE');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('trailers');
     }
 };

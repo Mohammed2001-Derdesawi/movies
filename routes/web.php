@@ -28,6 +28,7 @@ Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
 Route::name('user.')->group(function () {
 
 
+
 });
 
 

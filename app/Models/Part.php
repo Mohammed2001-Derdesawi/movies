@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -53,4 +54,14 @@ public function actors(): BelongsToMany
 {
     return $this->belongsToMany(Actor::class, 'actors_parts', 'part_id','actor_id');
 }
+
+   /**
+    * Get the trailer associated with the Part
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasOne
+    */
+   public function trailer(): HasOne
+   {
+       return $this->hasOne(Trailer::class, 'part_id', 'id');
+   }
 }
