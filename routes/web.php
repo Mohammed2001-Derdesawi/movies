@@ -24,8 +24,15 @@ Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
 
 });
 
+
+Route::name('user.')->group(function () {
+
+
+});
+
+
 Route::get('/seed',function(){
-    $part=Serie::with(['parts.images','parts.videos'])->find(6);
-    return  dd($part);
+    $serie=Serie::with([ 'category' ,'parts.images','parts.videos'])->find(6);
+    return  dd($serie);
 
 });
