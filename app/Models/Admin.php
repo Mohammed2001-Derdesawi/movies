@@ -18,4 +18,11 @@ class Admin extends Model
     {
         return $this->hasMany(PopularQuestion::class, 'admin_id', 'id');
     }
+    public function image()
+    {
+        return $this->morphOne(Image::class,'imageable');
+    }
+
+
+
 }

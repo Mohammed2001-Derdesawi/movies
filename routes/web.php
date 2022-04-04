@@ -2,6 +2,7 @@
 
 use App\Models\Movie;
 use App\Models\Part;
+use App\Models\Serie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,7 @@ Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
 });
 
 Route::get('/seed',function(){
-    $part=Movie::with('parts')->find(4);
+    $part=Serie::with(['parts.images','parts.videos'])->find(6);
     return  dd($part);
 
 });

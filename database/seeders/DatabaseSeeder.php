@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\Movie::factory(10)->create();
          \App\Models\Serie::factory(10)->create();
          \App\Models\Part::factory(10)->create();
+         \App\Models\Video::factory(10)->create();
+         \App\Models\Image::factory(10)->create();
     }
 }

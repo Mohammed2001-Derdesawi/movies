@@ -22,12 +22,12 @@ class Part extends Model
     public function videos()
     {
 
-        return $this->hasMnay(Video::class,'part_id');
+        return $this->hasMany(Video::class,'part_id','id');
     }
     public function comments()
     {
 
-        return $this->hasMnay(Comment::class,'part_id');
+        return $this->hasMany(Comment::class,'part_id','id');
     }
     /**
      * Get all of the review for the part
@@ -38,7 +38,7 @@ class Part extends Model
     {
         return $this->hasMany(Review::class, 'part_id', 'id');
     }
-    public function image()
+    public function images()
     {
         return $this->morphMany(Image::class,'imageable');
     }
