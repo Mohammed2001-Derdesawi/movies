@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('path');
             $table->unsignedInteger('part_id');
+
             $table->foreign('part_id')->references('id')->on('parts')->onDelete('CASCADE');
             $table->timestamps();
         });
