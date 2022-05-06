@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Events\TestBrodcast;
+use App\Events\TestBrodcastEvent;
+use Illuminate\Support\Facades\Event;
+use App\Listeners\TestBrodcastListner;
 use Illuminate\Auth\Events\Registered;
+use App\Events\SendForgotPasswordAdminEvent;
+use App\Listeners\ForgotPasswordAdminListner;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -19,6 +24,13 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
 
         ],
+        SendForgotPasswordAdminEvent::class =>[
+            ForgotPasswordAdminListner::class,
+        ],
+        TestBrodcastEvent::class =>[
+            TestBrodcastListner::class,
+        ],
+
     ];
 
     /**
