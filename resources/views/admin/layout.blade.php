@@ -13,7 +13,14 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/magnific-popup.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/admin/css/select2.min.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/admin/css/admin.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('css')
+    <style>
+        body{
+            background-color: #2b2b31 !important;
+
+        }
+    </style>
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="{{asset('assets/admin/icon/favicon-32x32.png')}}" sizes="32x32">
@@ -25,7 +32,7 @@
 	<title>FlixGo – Online Movies, TV Shows & Cinema HTML Template</title>
 
 </head>
-<body>
+<body >
 
 <!-- header -->
 <header class="header">
@@ -66,9 +73,9 @@
 			<p>John Doe</p>
 		</div>
 
-		<button class="sidebar__user-btn" type="button">
+		<a class="sidebar__user-btn" type="button" href="{{route('admin.logout')}}">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"></path></svg>
-		</button>
+        </a>
 	</div>
 	<!-- end sidebar user -->
 
@@ -118,10 +125,14 @@
 <!-- end sidebar -->
 
 <!-- main content -->
-@yield('content')
+<div id="app">
+    @yield('content')
+</div>
+
 <!-- end main content -->
 
 <!-- JS -->
+<script src="{{mix('js/app.js')}}"></script>
 <script src="{{asset('assets/admin/js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/jquery.magnific-popup.min.js')}}"></script>

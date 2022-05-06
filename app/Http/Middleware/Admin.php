@@ -17,10 +17,17 @@ class Admin
      */
     public function handle(Request $request, Closure $next,$guard='admin')
     {
+
+
+
         if (!Auth::guard($guard)->check()) {
-            // toast('You Must Login First','warning');
-            // return redirect('admin/login');
+             return redirect('admin/signin');
         }
+
+        // session()->forget('url.intended');
+
         return $next($request);
     }
+
+
 }

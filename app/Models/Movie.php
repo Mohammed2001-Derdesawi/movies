@@ -14,9 +14,11 @@ class Movie extends Model
     {
         return $this->morphMany(Part::class,'partable');
     }
+
+
     public function tags()
     {
-        return $this->morphToMany(Tag::class,'taggable');
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
     /**
@@ -32,5 +34,10 @@ class Movie extends Model
     public function favouritables()
     {
         return $this->morphToMany(Favourite::class,'favouritable');
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class,'imageable');
     }
 }
