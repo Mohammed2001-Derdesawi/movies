@@ -11,6 +11,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['*'];
+
     /**
      * Get the part that owns the Comment
      *
@@ -38,6 +40,11 @@ class Comment extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+
+    public function scopeSearch ($query , $item) {
+        $query->where('body' , 'LIKE' , $item);
     }
 
 }

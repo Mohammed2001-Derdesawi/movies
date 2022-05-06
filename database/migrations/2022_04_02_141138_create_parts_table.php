@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('place_of_work');
             $table->unsignedInteger('admin_id');
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('NO ACTION');
+            $table->foreign('admin_id')->references('id')->on('admins');
 
 
             $table->timestamps();

@@ -108,4 +108,9 @@ class User extends Authenticatable
     {
        return $this->hasMany(Favourite::class,'user_id');
     }
+
+
+    public function scopeSearch ($query , $item) {
+        $query->where('name' ,'LIKE' , $item)->orWhere('email' , 'LIKE' , $item);
+    }
 }
