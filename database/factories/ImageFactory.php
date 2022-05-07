@@ -17,9 +17,9 @@ class ImageFactory extends Factory
     public function definition()
     {
         $imagable=[
-            \App\Models\Part::class,
-            \App\Models\Actor::class,
-            \App\Models\User::class,
+            // \App\Models\Part::class,
+            // \App\Models\Actor::class,
+            // \App\Models\User::class,
             \App\Models\Admin::class,
 
         ];

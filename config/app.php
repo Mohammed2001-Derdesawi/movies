@@ -165,6 +165,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+<<<<<<< HEAD
+
+        Intervention\Image\ImageServiceProvider::class,
+=======
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4
 
         /*
          * Package Service Providers...
@@ -194,6 +199,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
+        'ImageIntervention' => Intervention\Image\Facades\ImageIntervention::class,
     ])->toArray(),
 
 ];

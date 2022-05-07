@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
          \App\Models\Part::factory(10)->create();
          \App\Models\Video::factory(10)->create();
          \App\Models\Image::factory(10)->create();
+<<<<<<< HEAD
+         \App\Models\Comment::factory(20)->create();
+         \App\Models\Like::factory(10)->create();
+         \App\Models\Review::factory(10)->create();
+         \App\Models\PopularQuestion::factory(10)->create();
+=======
          \App\Models\Review::factory(40)->create();
          \App\Models\Tag::factory(10)->create();
          $tagaable=[
@@ -45,5 +51,6 @@ class DatabaseSeeder extends Seeder
            ]
             );
 
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4
     }
 }

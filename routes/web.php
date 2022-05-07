@@ -1,8 +1,14 @@
 <?php
 
+<<<<<<< HEAD
+use App\Models\Part;
+use App\Models\User;
+use App\Models\Admin;
+=======
 use App\Events\TestBrodcast;
 use App\Models\Tag;
 use App\Models\Part;
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4
 use App\Models\Movie;
 use App\Models\Serie;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +32,48 @@ Route::get('/', function () {
     return view('main.index');
 })->name('main');
 
+<<<<<<< HEAD
+Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
+    Route::get('/comments', function () {
+        return view('admin.comments');
+    })->name('comments');
+    
+    Route::get('/users', function () {
+        return view('admin.users');
+    })->name('users');
+
+    Route::get('/create', function () {
+        return view('admin.createAdmin');
+    })->name('craeteAdmin');
+
+    Route::get('/admins', function () {
+        return view('admin.admins');
+    })->name('admins');
+
+    Route::get('/edit/{id}', function () {
+        return view('admin.edit-admin');
+    })->name('editAdmin');
+
+
+    Route::get('/roles', function () {
+        return view('admin.roles');
+    })->name('roles');
+
+
+    Route::get('/edit/role/{id}', function () {
+        return view('admin.editRole');
+    })->name('editRole');
+
+
+    Route::get('/permissions', function () {
+        return view('admin.permissions');
+    })->name('permissions');
+
+    Route::get('/edit/permission/{id}', function () {
+        return view('admin.editPermission');
+    })->name('editPermission');
+=======
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4
 
 
 
@@ -37,6 +85,16 @@ Route::name('user.')->group(function () {
 
 
 Route::get('/seed',function(){
+<<<<<<< HEAD
+    // return view('admin.edit-admin');
+    // $serie=Serie::with([ 'category' ,'parts.images','parts.videos'])->find(6);
+    // return  dd($serie);
+
+    // $user = User::with(['image'])->get()->dd();
+    // $admins = Admin::withCount(['populars_questions'])->with(['image'])->find(10);
+    //  dd($admins->image);
+    return view('admin.add-item');
+=======
     $serie=Tag::with('series')->find(2);
     return  dd($serie);
 
@@ -70,8 +128,12 @@ Route::post('/admin/password/update',[AuthAdminController::class,'adminUpdatePas
     // Route::get('review/serach/',[AdminReviewController::class,'reviewsearch']);
     Route::post('/review/delete/',[AdminReviewController::class,'reviewdelete']);
  // End Admin Reviews Dashboard
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4
 });
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4

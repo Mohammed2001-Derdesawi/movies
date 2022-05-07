@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('body');
+            $table->boolean('status');
             $table->unsignedInteger('part_id');
             $table->foreign('part_id')->references('id')->on('parts')->onDelete('CASCADE');
             $table->unsignedInteger('user_id');

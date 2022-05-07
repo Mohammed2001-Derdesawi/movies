@@ -7,12 +7,18 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
+        "jantinnerezo/livewire-alert": "^2.2",
         "laravel/framework": "^9.2",
         "laravel/passport": "^10.4",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+<<<<<<< HEAD
+        "livewire/livewire": "^2.10",
+=======
         "pusher/pusher-php-server": "^7.0",
+>>>>>>> cc24638561287abba95aafde3484c10403a550e4
         "realrashid/sweet-alert": "^5.0",
         "spatie/laravel-permission": "^5.5"
     },
