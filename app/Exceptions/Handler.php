@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+
+use Illuminate\Support\Arr;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -38,4 +41,36 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+
+       /**
+         * Convert an authentication exception into a response.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @param  \Illuminate\Auth\AuthenticationException  $exception
+         * @return \Illuminate\Http\Response
+         */
+        protected function unauthenticated($request, AuthenticationException $exception)
+        {
+            if($request->expectsJson())
+            return  response()->json(['message' => 'Unauthenticated.'], 401);
+            $guard=Arr::get($exception->guards(),0);
+            switch($guard)
+            {
+                case 'admin':
+                    $login='admin.login';
+                    break;
+                    default:
+                    $login='/';
+
+
+            }
+            return redirect()->guest(route($login));
+
+
+
+        }
+
+
+
 }
