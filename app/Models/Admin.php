@@ -2,12 +2,9 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
 use Spatie\Permission\Traits\HasRoles;
-=======
 use Laravel\Passport\HasApiTokens;
 
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,27 +13,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
-<<<<<<< HEAD
 
-   
 
-    use HasFactory , HasRoles;
-
-    protected $fillable = ['name' , 'email' , 'password' , 'status'];
-=======
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
   protected $guard='admin';
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+  protected $fillable = ['name' , 'email' , 'password' , 'status'];
 
 
     /**
@@ -59,7 +41,6 @@ class Admin extends Authenticatable
     ];
 
 
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
     /**
      * Get all of the populars_questions for the Admin
      *

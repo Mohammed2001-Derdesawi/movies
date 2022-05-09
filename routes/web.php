@@ -1,14 +1,10 @@
 <?php
 
-<<<<<<< HEAD
-use App\Models\Part;
 use App\Models\User;
 use App\Models\Admin;
-=======
 use App\Events\TestBrodcast;
 use App\Models\Tag;
 use App\Models\Part;
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
 use App\Models\Movie;
 use App\Models\Serie;
 use Illuminate\Support\Facades\Route;
@@ -32,12 +28,11 @@ Route::get('/', function () {
     return view('main.index');
 })->name('main');
 
-<<<<<<< HEAD
 Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
     Route::get('/comments', function () {
         return view('admin.comments');
     })->name('comments');
-    
+
     Route::get('/users', function () {
         return view('admin.users');
     })->name('users');
@@ -72,11 +67,9 @@ Route::name('admin.')->prefix('/dashboard/admin')->group(function () {
     Route::get('/edit/permission/{id}', function () {
         return view('admin.editPermission');
     })->name('editPermission');
-=======
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
 
 
-
+});
 Route::name('user.')->group(function () {
 
 
@@ -85,7 +78,6 @@ Route::name('user.')->group(function () {
 
 
 Route::get('/seed',function(){
-<<<<<<< HEAD
     // return view('admin.edit-admin');
     // $serie=Serie::with([ 'category' ,'parts.images','parts.videos'])->find(6);
     // return  dd($serie);
@@ -94,7 +86,6 @@ Route::get('/seed',function(){
     // $admins = Admin::withCount(['populars_questions'])->with(['image'])->find(10);
     //  dd($admins->image);
     return view('admin.add-item');
-=======
     $serie=Tag::with('series')->find(2);
     return  dd($serie);
 
@@ -123,17 +114,10 @@ Route::post('/admin/password/update',[AuthAdminController::class,'adminUpdatePas
  Route::middleware('admin')->name('admin.')->prefix('/dashboard/admin')->group(function () {
      // Start Admin Reviews Dashboard
     Route::get('/reviews',[AdminReviewController::class,'reviews'])->name('reviews');
+    Route::get('/get/reviews',[AdminReviewController::class,'getjsonreviews'])->name('.getreviewsjson');
     // Route::get('/reviews/sortbydate/',[AdminReviewController::class,'reviewsortbydate']);
     // Route::get('/reviews/sortbyrating/',[AdminReviewController::class,'reviewsortbyrating']);
     // Route::get('review/serach/',[AdminReviewController::class,'reviewsearch']);
     Route::post('/review/delete/',[AdminReviewController::class,'reviewdelete']);
  // End Admin Reviews Dashboard
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
 });
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> cc24638561287abba95aafde3484c10403a550e4

@@ -125,7 +125,7 @@
 <!-- end main content -->
 
  <!-- modal view -->
-<modalviewreview-component :reviewview="reviewview" @close="showmodelview = false" :show="showmodelview"></modalviewreview-component>
+<modalviewreview-component  :reviewview="reviewview" @close="showmodelview = false" :show="showmodelview"></modalviewreview-component>
 
 <!-- <div id="modal-view" class="zoom-anim-dialog modal modal--view mfp-hide "  >
 	<div class="reviews__autor">
@@ -157,7 +157,7 @@ export default {
     },
      mounted(){
 //   Pusher.logToConsole=true;
-
+    //  this.getreviewsjson();
    Echo.private(`test.${this.adminid}`)
     .listen('TestBrodcastEvent', (e) => {
          console.log(e);
@@ -165,7 +165,8 @@ export default {
     .error((error) => {
         console.error(error);
     });
-    console.log('component created')
+
+
 
   },
 
@@ -190,7 +191,6 @@ export default {
 			filterby:'',
             reviewsData:this.reviews,
             ismodalhide:true,
-
             searchview:'',
             count:this.reviewtotal,
             reviewview:{
@@ -234,11 +234,26 @@ export default {
                 return 0;
          },
 
+         getreviewsjson()
+         {
+              axios.get('/dashboard/admin/get/reviews').then((response)=>{
+                this.reviewsData=response.data.reviews;
+                this.count=response.data.count;
+                    //  setInterval(this.getreviewsjson(),3000);
+
+
+
+            }).catch(() => {
+                    console.log('handle server error from here');
+                });
+         },
+
 
         getResult(page=1)
         {
             axios.get('/api/dashboard/admin/reviews/get?page='+page).then((response)=>{
-                this.reviewsData=response.data
+                this.reviewsData=response.data;
+                this.count=response.data.data.length;
 
 
             }).catch(() => {
@@ -316,7 +331,11 @@ export default {
    }
 
 }
+
+
 </script>
+
+
 
 
 

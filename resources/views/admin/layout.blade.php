@@ -13,16 +13,30 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/magnific-popup.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/admin/css/select2.min.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/admin/css/admin.css')}}">
-<<<<<<< HEAD
 	{{-- <link rel="stylesheet" href="{{asset('assets/admin/css/select2.css')}}"> --}}
-=======
     <meta name="csrf-token" content="{{ csrf_token() }}">
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
     @yield('css')
     <style>
         body{
             background-color: #2b2b31 !important;
 
+        }
+
+        .ivu-icon-ios-information-circle-outline,.ivu-icon-ios-close{
+             color:#ff55a5 !important;
+        }
+       .ivu-notice-title{
+           color: #fff !important;
+
+       }
+        .ivu-notice-notice-with-desc{
+            background-color: #2b2b31 !important;
+            color: #fff !important;
+        }
+
+        .ivu-notice-desc{
+            background-color: #2b2b31 !important;
+            color: #fff !important;
         }
     </style>
 
@@ -104,7 +118,7 @@
 		</li>
 
 		<li class="sidebar__nav-item">
-			<a href="reviews.html" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M22,10.1c0.1-0.5-0.3-1.1-0.8-1.1l-5.7-0.8L12.9,3c-0.1-0.2-0.2-0.3-0.4-0.4C12,2.3,11.4,2.5,11.1,3L8.6,8.2L2.9,9C2.6,9,2.4,9.1,2.3,9.3c-0.4,0.4-0.4,1,0,1.4l4.1,4l-1,5.7c0,0.2,0,0.4,0.1,0.6c0.3,0.5,0.9,0.7,1.4,0.4l5.1-2.7l5.1,2.7c0.1,0.1,0.3,0.1,0.5,0.1v0c0.1,0,0.1,0,0.2,0c0.5-0.1,0.9-0.6,0.8-1.2l-1-5.7l4.1-4C21.9,10.5,22,10.3,22,10.1z M15.8,13.6c-0.2,0.2-0.3,0.6-0.3,0.9l0.7,4.2l-3.8-2c-0.1-0.1-0.3-0.1-0.5-0.1V5.7l1.9,3.8c0.1,0.3,0.4,0.5,0.8,0.5l4.2,0.6L15.8,13.6z"/></svg> Reviews</a>
+			<a href="{{route('admin.reviews')}}" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M22,10.1c0.1-0.5-0.3-1.1-0.8-1.1l-5.7-0.8L12.9,3c-0.1-0.2-0.2-0.3-0.4-0.4C12,2.3,11.4,2.5,11.1,3L8.6,8.2L2.9,9C2.6,9,2.4,9.1,2.3,9.3c-0.4,0.4-0.4,1,0,1.4l4.1,4l-1,5.7c0,0.2,0,0.4,0.1,0.6c0.3,0.5,0.9,0.7,1.4,0.4l5.1-2.7l5.1,2.7c0.1,0.1,0.3,0.1,0.5,0.1v0c0.1,0,0.1,0,0.2,0c0.5-0.1,0.9-0.6,0.8-1.2l-1-5.7l4.1-4C21.9,10.5,22,10.3,22,10.1z M15.8,13.6c-0.2,0.2-0.3,0.6-0.3,0.9l0.7,4.2l-3.8-2c-0.1-0.1-0.3-0.1-0.5-0.1V5.7l1.9,3.8c0.1,0.3,0.4,0.5,0.8,0.5l4.2,0.6L15.8,13.6z"/></svg> Reviews</a>
 		</li>
 
 		<!-- dropdown -->
@@ -145,14 +159,11 @@
 <!-- end main content -->
 
 <!-- JS -->
-<<<<<<< HEAD
 
 @livewireScripts
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <x-livewire-alert::scripts />
-=======
 <script src="{{mix('js/app.js')}}"></script>
->>>>>>> cc24638561287abba95aafde3484c10403a550e4
 <script src="{{asset('assets/admin/js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/jquery.magnific-popup.min.js')}}"></script>
