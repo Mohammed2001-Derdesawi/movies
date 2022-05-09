@@ -21,3 +21,7 @@ Broadcast::channel('test.{adminId}',function($admin,$adminId){
   return ($admin->id==$adminId);
 
 },['guards' => ['admin']]);
+Broadcast::channel('deletereview',function($admin){
+  return $admin->hasRole('super admin');
+
+},['guards' => ['admin']]);

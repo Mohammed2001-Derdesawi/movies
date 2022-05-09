@@ -15,8 +15,7 @@ use Intervention\Image\Facades\ImageIntervention;
 class CreateAdmins extends Component
 {
 
-    use WithFileUploads;
-    use LivewireAlert;
+    use WithFileUploads, LivewireAlert;
 
     public $name;
     public $email;
@@ -100,5 +99,5 @@ class CreateAdmins extends Component
         $this->file = '';
 
     }
-    
+
 }

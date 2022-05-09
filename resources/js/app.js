@@ -42,5 +42,26 @@ Vue.component('paginationreview-component', require('./components/reviews/Pagina
 
 const app = new Vue({
     el: '#app',
+
+    mounted()
+    {
+        Echo.private(`deletereview`)
+        .listen('DeleteReviewEvent', (e) => {
+            this.$Notice.info({
+                title: e.message,
+                desc:e.admin.name + `(${e.admin.email}) Has Deleted Review`,
+                background:true
+            });
+            if(window.location.pathname.includes('reviews'))
+            this.$children[0].reviewsData.meta!=undefined?this.$children[0].getResult(this.$children[0].reviewsData.meta.current_page):this.$children[0].getreviewsjson()
+
+
+
+        })
+        .error((error) => {
+            console.error(error);
+        });
+
+    },
 });
 

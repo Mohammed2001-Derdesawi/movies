@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Events\DeleteReviewEvent;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -24,12 +25,22 @@ class AdminReviewController extends Controller
         return 'Ok';
 
     }
+
+    public function getjsonreviews()
+    {
+
+        $reviews=\App\Models\Review::with(['user','part.partable'])->paginate(40);
+        $count=Review::all()->count();
+        return response()->json([
+            'reviews'=>$reviews,
+            'count'=>$count
+        ]);
+    }
     public function reviews()
     {
 
         $reviews=\App\Models\Review::with(['user','part.partable'])->paginate(40);
         $count=Review::all()->count();
-        event(new TestBrodcastEvent(Auth::guard('admin')->user()));
 
 
          return view('admin.reviews',compact('reviews','count'));
@@ -49,6 +60,8 @@ class AdminReviewController extends Controller
    }
    public function reviewdelete(Request $request){
          Review::find($request->id)->delete();
+         event(new DeleteReviewEvent('Review was Deleted!',Auth::guard('admin')->user()));
+
          $count=Review::all()->count();
           return ['reviews'=>Review::with(['user','part.partable'])->paginate(40),'count'=>$count];
 
@@ -57,6 +70,7 @@ class AdminReviewController extends Controller
    public function getReviews()
    {
       $reviews=\App\Models\Review::with(['user','part.partable'])->paginate(40);
+
 
        return ReviewResource::collection($reviews);
    }

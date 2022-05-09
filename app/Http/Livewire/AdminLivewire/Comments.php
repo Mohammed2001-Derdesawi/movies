@@ -9,15 +9,14 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Comments extends Component
 {
-    use WithPagination;
-    use LivewireAlert;
+    use WithPagination, LivewireAlert;
 
 
     public $sortBy = 1;
     public $search = '';
 
     public $commentId;
-    
+
 
     protected $listeners = ['deleteComment' , 'changeStatusCommentEvent'];
 
@@ -36,7 +35,7 @@ class Comments extends Component
             'commentsCount' => Comment::all()->count(),
         ]);
     }
-    
+
     // public function updatingSearch()
     // {
     //     $this->resetPage();
@@ -100,5 +99,5 @@ class Comments extends Component
     public function not_activeComments () {
         $this->sortBy = 0;
     }
-    
+
 }

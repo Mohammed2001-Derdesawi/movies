@@ -2,15 +2,14 @@
 
 namespace App\Http\Livewire\AdminLivewire;
 use App\Models\Admin;
-use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\View\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Admins extends Component
 {
 
-    use WithPagination;
-    use LivewireAlert;
+    use WithPagination, LivewireAlert;
 
 
     public $adminId;
@@ -22,7 +21,7 @@ class Admins extends Component
     public function render()
     {
         $searchItem = '%'.$this->search.'%';
-        
+
         return view('livewire.admin-livewire.admins' , [
             'admins' => Admin::withCount(['populars_questions'])->with(['image'])
             ->where('status' , $this->sortBy)
@@ -40,7 +39,7 @@ class Admins extends Component
 
     public function changeStatusAdmin () {
         $admin = Admin::where('id' , $this->adminId)->first();
-        
+
         if ($admin->status == 1) {
             $admin->status = 0;
         } else {
@@ -66,7 +65,7 @@ class Admins extends Component
 
     public function destroyAdmin () {
         $admin = Admin::where('id' , $this->adminId)->first();
-        
+
         $admin->delete();
 
         $this->alert('info', 'Admin deleted Successfully 😆', [

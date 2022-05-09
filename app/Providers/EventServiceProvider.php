@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Events\DeleteReviewEvent;
 use App\Events\TestBrodcast;
 use App\Events\TestBrodcastEvent;
 use Illuminate\Support\Facades\Event;
 use App\Listeners\TestBrodcastListner;
 use Illuminate\Auth\Events\Registered;
 use App\Events\SendForgotPasswordAdminEvent;
+use App\Listeners\DeleteReviewListner;
 use App\Listeners\ForgotPasswordAdminListner;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -29,6 +31,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         TestBrodcastEvent::class =>[
             TestBrodcastListner::class,
+        ],
+        DeleteReviewEvent::class =>[
+            DeleteReviewListner::class,
         ],
 
     ];
